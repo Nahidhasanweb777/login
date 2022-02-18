@@ -1,5 +1,6 @@
 <?php
        include_once'script.php';
+     
     ?>
 
 <div class="container mt-5 " style=" font">
@@ -7,19 +8,20 @@
         <div class="col-md -3"></div>
         <div class="col-md-6 bg-info">
         <div class="heading display-4 text-center">Registration Form</div>
-        <form action="index1.php" method="get">
+        <!-- form start -->
+        <form action="loginfunction.php" method="get">
             <div class="row">
                 <div class="col-md-6">
                 
                     <div class="mb-3 mt-3">
                       <label for="First-Name" class="form-label">First-Name:</label>
-                     <input type="text" class="form-control" id="First-Name" placeholder="Enter First-Name" name="fName">
+                     <input type="text" class="form-control" id="First-Name" placeholder="Enter First-Name" name="fName" required>
                     </div>
                  </div>
                 <div class="col-md-6">
                    <div class="mb-3 mt-3">
                      <label for="Last-Name" class="form-label">Last-Name:</label>
-                     <input type="text" class="form-control" id="Last-Name" placeholder="Enter Last-Name" name="LName">
+                     <input type="text" class="form-control" id="Last-Name" placeholder="Enter Last-Name" name="LName" required>
                     </div>
                 </div>
             </div>
@@ -28,7 +30,7 @@
                 <div class="col-md-6">
                     <div class="mb-3 mt-3">
                       <label for="Birth of Date" class="form-label">Birth of Date:</label>
-                     <input type="date" class="form-control" id="Birth of Date" placeholder="Enter Birth of Date" name="bdate">
+                     <input type="date" class="form-control" id="Birth of Date" placeholder="Enter Birth of Date" name="bdate" required>
                     </div>
                  </div>
                 <div class="col-md-6">
@@ -38,11 +40,11 @@
                      
 
                      <div class="form-check form-check-inline">
-                             <input class="form-check-input" type="radio" name="gender" id="fmale" value="fmale" required>
+                             <input class="form-check-input" type="radio" name="gender" id="fmale" value="Female" required>
                               <label class="form-check-label" for="inlineRadio1">Female</label>
                      </div>
                      <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="gender" id="male" value="male">
+                            <input class="form-check-input" type="radio" name="gender" id="male" value="Male">
                              <label class="form-check-label" for="inlineRadio2">Male</label>
                       </div>
 
@@ -60,14 +62,14 @@
                 <div class="col-md-6">
                    <div class="mb-3 mt-3">
                      <label for="Password" class="form-label">Password:</label>
-                     <input type="Password" class="form-control" id="Password" placeholder="Enter Password" name="Password">
+                     <input type="Password"  class="form-control" id="Password" placeholder="Enter Password" name="Password" required>
                         <?php
 
                         if(isset($_REQUEST['passLength']))
                         {
                             ?>
                             <div class="alert alert-denger">
-                                       <p class="text-danger"> Enter at leat eight number of password</p>
+                                       <p class="text-danger"> Enter at least eight number of password</p>
                             </div>
                            <?php 
                         }
@@ -85,7 +87,7 @@
     </label>
   </div>
  
-      <button type="submit" class="btn btn-primary mb-3 ">Submit</button>
+      <button type="submit" name="submit" class="btn btn-primary mb-3 ">Submit</button>
      
       <div class="alert alert-success">
   <strong>Already have an account!</strong> You should <a href="#" class="alert-link">Click to login</a>.
@@ -101,6 +103,7 @@
         <div class="col-md-3"></div>
     </div>
 </div>    
+
 
 
 
