@@ -11,5 +11,5 @@ $conn = mysqli_connect('localhost', 'nahid', '1234','nahid');
 if (!$conn) {
   die("Connection failed. " . mysqli_error($conn));
 }
-echo "Connected successfully";
+echo " Database Connected successfully";
 ?>

@@ -90,7 +90,7 @@
       <button type="submit" name="submit" class="btn btn-primary mb-3 ">Submit</button>
      
       <div class="alert alert-success">
-  <strong>Already have an account!</strong> You should <a href="#" class="alert-link">Click to login</a>.
+  <strong>Already have an account!</strong> You should <a href="login.php" class="alert-link">Click to login</a>.
 
       </div>
   

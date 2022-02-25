@@ -9,7 +9,7 @@
         <div class="col-md -3"></div>
         <div class="col-md-6 bg-info">
 
-        <form action="loginfunction.php" method="post">
+        <form action="login.php" method="post">
   <div class="mb-3 mt-3">
     <label for="email" class="form-label">Email:</label>
     <input type="email" class="form-control" id="email" placeholder="Enter email" name="log_email">
@@ -31,3 +31,35 @@
     </div>
 </div>    
 
+<?php
+
+if(isset($_REQUEST['login'])){
+// $servername = "localhost";
+// $username = "nahid";
+// $password = "1234";
+// $db = "nahid";
+include_once'db_connection.php';
+// mysql_connect($servername,$username,$password);
+// mysql_select_db($db);
+  $log_email=$_REQUEST['log_email'];
+  $log_pass=$_REQUEST['log_pass'];
+  
+  $sql="select * from user where EMAIL='".$log_email."'AND PASSWORD='".$log_pass."' ";
+  
+ // $result1=mysql_query($sql);
+
+  $result1 = mysqli_query($conn, $sql);
+//   $fetchdatas = mysqli_fetch_assoc($result1);
+  
+while($row = mysqi_fetch_row($result1)){
+
+   
+
+  }
+
+  
+      
+}
+
+
+?>

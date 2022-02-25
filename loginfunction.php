@@ -7,6 +7,7 @@
  $gender = $_REQUEST['gender'];
  $email = $_REQUEST['email'];
  $Password = $_REQUEST['Password'];
+ //$conPassword = $_REQUEST['conPassword'];
 
  $passCound = strlen($Password);
 
@@ -14,12 +15,12 @@
 
  if (($passCound >= 8 ) == false)
  {
-    echo " not ok";
+    //echo " not ok";
     header("location:regi.php?passLength=Enter at least 8 number of password.");
   
  }
  else{
-     echo " ok";
+    // echo " ok";
  $hash_format = "$2y$07$"; //code 07 is how much time need to genarate 
  $salt = "vbnhjkloyesadfyhju22$"; // salt is mix with hash_farmate then genarat
  $conC = $hash_format . $salt;
@@ -34,9 +35,13 @@
     $query .= "values('$fName','$lname','$bdate','$gender','$email','$Password' )";
 
     $result = mysqli_query($conn,$query);
+    
     if(!$result)
     {
         die("not success");
+    }
+    else{
+      header("location:login.php");
     }
 
  }
@@ -49,19 +54,6 @@
 // Password make link:
 // https://www.php.net/manual/en/function.crypt.php
 
-
-
-
-
-
-$log_email = $_REQUEST['log_email'];
-$log_Pass = $_REQUEST['log_pass'];
-$query1 = mysql_query("select * from user where EMAIL = '$log_email' AND PASSWORD ='$log_pass ", $connection);
-while ($row1 = mysql_fetch_array($query1))
-if(isset($_REQUEST['login']))
-{
-    $result = mysqli_query($conn, 
-}
 
  
 ?>
