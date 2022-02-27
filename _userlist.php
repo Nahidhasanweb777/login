@@ -29,6 +29,7 @@ if($count>0){
   <table class="table table-striped">
     <thead style="background:green;">
       <tr>
+      <th>Profile Picture</th>
         <th>ID</th>
         <th>FIRST NAME</th>
         <th>LAST NAME</th>
@@ -57,7 +58,8 @@ while ($row = mysqli_fetch_assoc($userlist)){
 
   
  //declear into new variable
-   $db_id = $row['ID'];
+ $Profile = $row[name] 
+ $db_id = $row['ID'];
    $db_FirstName = $row['FIRST_NAME'];
    $db_LastName = $row['LAST_NAME'];
    $db_Birth_of_date = $row['BIRTH_OF_DATE'];

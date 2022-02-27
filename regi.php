@@ -11,7 +11,15 @@
         <!-- form start -->
         <form action="loginfunction.php" method="get">
             <div class="row">
-                <div class="col-md-6">
+            <div class="col-md-6">
+                
+                <div class="mb-3 mt-3">
+                  <label for="First-Name" class="form-label">Profile Picture:</label>
+                 <input type="file" class="form-control" id="Profile" placeholder="Enter First-Name" name="profile" required>
+                </div>
+             </div>  
+            
+            <div class="col-md-6">
                 
                     <div class="mb-3 mt-3">
                       <label for="First-Name" class="form-label">First-Name:</label>
@@ -59,6 +67,7 @@
                      <input type="text" class="form-control" id="email" placeholder="Enter email" name="email" required>
                     </div>
                  </div>
+                 
                 <div class="col-md-6">
                    <div class="mb-3 mt-3">
                      <label for="Password" class="form-label">Password:</label>

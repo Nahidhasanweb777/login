@@ -7,6 +7,7 @@
  $gender = $_REQUEST['gender'];
  $email = $_REQUEST['email'];
  $Password = $_REQUEST['Password'];
+ $profile =$_FILES['Profile'];
  //$conPassword = $_REQUEST['conPassword'];
 
  $passCound = strlen($Password);
@@ -31,8 +32,8 @@
  {
     include_once'db_connection.php';
 
-    $query = " INSERT INTO  user ( FIRST_NAME, LAST_NAME, BIRTH_OF_DATE, GENDER, EMAIL, PASSWORD) ";
-    $query .= "values('$fName','$lname','$bdate','$gender','$email','$Password' )";
+    $query = " INSERT INTO  user ( FIRST_NAME, LAST_NAME, BIRTH_OF_DATE, GENDER, EMAIL, PASSWORD, Profile) ";
+    $query .= "values('$fName','$lname','$bdate','$gender','$email','$Password','Profile' )";
 
     $result = mysqli_query($conn,$query);
     
