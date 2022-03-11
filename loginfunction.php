@@ -7,9 +7,30 @@
  $gender = $_REQUEST['gender'];
  $email = $_REQUEST['email'];
  $Password = $_REQUEST['Password'];
- $profile =$_FILES['Profile'];
+ $Cpassword = $_REQUEST['Cpassword'];
+
+$pro = $_FILES['profile'];
+$pname = $pro['name'];
+$ptmp_name = $pro['tmp_name'];
+$psize = $pro['size'];
+$psize1 =floor($psize/1000);
+
+// echo $psize1."kb";
+// echo $pname;
+//$Profilename = $Profile1['name'];
+//  echo $fName ;
+//  var_dump($pro);
  //$conPassword = $_REQUEST['conPassword'];
 
+if(!empty($pname)){
+   $loc = "uploads/";
+   //move_uploaded_file($ptmp_name,$loc."profile.jpg");
+   move_uploaded_file($ptmp_name, $loc.$pname);
+   echo"file ok";
+}
+else{
+   echo"image uploade faild";
+}
  $passCound = strlen($Password);
 
 
@@ -19,6 +40,9 @@
     //echo " not ok";
     header("location:regi.php?passLength=Enter at least 8 number of password.");
   
+ }
+ elseif(($Password == $Cpassword) == false){
+   header("location:regi.php?notsame= confirm password does not match");
  }
  else{
     // echo " ok";
@@ -33,7 +57,7 @@
     include_once'db_connection.php';
 
     $query = " INSERT INTO  user ( FIRST_NAME, LAST_NAME, BIRTH_OF_DATE, GENDER, EMAIL, PASSWORD, Profile) ";
-    $query .= "values('$fName','$lname','$bdate','$gender','$email','$Password','Profile' )";
+    $query .= "values('$fName','$lname','$bdate','$gender','$email','$Password','$pname' )";
 
     $result = mysqli_query($conn,$query);
     
@@ -43,6 +67,7 @@
     }
     else{
       header("location:login.php");
+      
     }
 
  }

@@ -58,8 +58,10 @@ while ($row = mysqli_fetch_assoc($userlist)){
 
   
  //declear into new variable
- $Profile = $row[name] 
- $db_id = $row['ID'];
+ 
+
+   $db_id = $row['ID'];
+   $Profile = $row['profile'] ;
    $db_FirstName = $row['FIRST_NAME'];
    $db_LastName = $row['LAST_NAME'];
    $db_Birth_of_date = $row['BIRTH_OF_DATE'];
@@ -69,6 +71,9 @@ while ($row = mysqli_fetch_assoc($userlist)){
 ?>
      <tr>
         <td><?php  echo $db_id ?> </td>
+        <td>
+        <img width="40px" src= "uploads/<?php echo $Profile ?>" class="rounded-circle">
+      </td>
         <td><?php  echo $db_FirstName ?></td>
         <td><?php  echo $db_LastName ?></td>
         <td><?php  echo $db_Birth_of_date ?></td>
