@@ -24,9 +24,18 @@ $db_LastName = $row['LAST_NAME'];
 $db_Birth_of_date = $row['BIRTH_OF_DATE'];
 $db_gender = $row['GENDER'];
 $db_email = $row['EMAIL'];
+$db_pro = $row['profile'].['name'];
 ?>
 
+<div class="row">
 <div class="col">
+
+        <label class="form-label">First Name </label>
+        <input type="file" class="form-control"  value="<?php echo $db_pro ?>">
+      </div>
+      </div>
+<div class="col">
+
         <label class="form-label">First Name </label>
         <input type="text" class="form-control" placeholder="FirstName" name="FirstName" value="<?php echo $db_FirstName;?>">
       </div>

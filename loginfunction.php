@@ -25,8 +25,8 @@ $psize1 =floor($psize/1000);
 if(!empty($pname)){
    $loc = "uploads/";
    //move_uploaded_file($ptmp_name,$loc."profile.jpg");
-   move_uploaded_file($ptmp_name, $loc.$pname);
-   echo"file ok";
+   move_uploaded_file($ptmp_name,$loc.$pname);
+   //echo"file ok";
 }
 else{
    echo"image uploade faild";
