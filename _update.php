@@ -12,7 +12,8 @@ if(isset($_REQUEST['editID']))
 <div class="container mt-3">
   <h2 class="text-center  mb-5">Update your information</h2>
   
-  <form action="_update.php" method="post">
+  <form action="_update.php" method="post" enctype="multipart/form-data">
+
     <div class="row">
 
 <?php 
@@ -24,14 +25,19 @@ $db_LastName = $row['LAST_NAME'];
 $db_Birth_of_date = $row['BIRTH_OF_DATE'];
 $db_gender = $row['GENDER'];
 $db_email = $row['EMAIL'];
-$db_pro = $row['profile'].['name'];
+$db_pro = $row['profile'];
+
+
+
+
 ?>
 
 <div class="row">
 <div class="col">
-
-        <label class="form-label">First Name </label>
-        <input type="file" class="form-control"  value="<?php echo $db_pro ?>">
+<?php var_dump ($db_pro); ?>
+        <label class="form-label">Profile </label>
+        <input type="file" class="form-control" id="Profile"  name="profile" value ="" >
+        <!-- <input type="file" class="form-control"  name ="profile" value="<?php //echo $db_pro ?>"> -->
       </div>
       </div>
 <div class="col">
@@ -100,18 +106,33 @@ $db_Birth_of_date = $_REQUEST['Date_Of_Birth'];
 $db_gender = $_REQUEST['gender'];
 $db_email = $_REQUEST['email'];
 
- $update_info = " UPDATE `user` SET `FIRST_NAME` = '$db_FirstName', `LAST_NAME` = '$db_LastName', `BIRTH_OF_DATE` = '$db_Birth_of_date', `GENDER` = '$db_gender', `EMAIL` = '$db_email' WHERE `ID` = '$db_hiddenid' ";
- require_once'db_connection.php';
-  $select_info = mysqli_query($conn,$update_info);
-  if($select_info){
-    
-    header("location:_userlist.php?Dataupdate=Data has been deteted.");
-  }
-  else{
+$pname = $_FILES['profile']['name'];
+$ptmp_name = $_FILES['profile']['tmp_name'];
+
+
+if(!empty($pname)){
   
-  echo "update not ok";
+  if( move_uploaded_file($ptmp_name,"uploads/$pname")){
+    unlink('uploads/'.$db_pro);
+    
+
+  }
+   //echo"file ok";
 }
 
+$update_info = " UPDATE `user` SET `profile` = '$pname', `FIRST_NAME` = '$db_FirstName', `LAST_NAME` = '$db_LastName', `BIRTH_OF_DATE` = '$db_Birth_of_date', `GENDER` = '$db_gender', `EMAIL` = '$db_email' WHERE `ID` = '$db_hiddenid' ";
+
+    $select_info = mysqli_query($conn,$update_info);
+    if($select_info){
+      
+      header("location:_userlist.php?Dataupdate=Data has been deteted.");
+    }
+    else{
+    
+    echo "update not ok";
+  }
+  
+ 
 }
 
 ?>

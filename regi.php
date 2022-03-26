@@ -38,7 +38,7 @@
                 
                 <div class="mb-3 mt-3">
                   <label for="Profile" class="form-label">Profile Picture:</label>
-                 <input type="file" class="form-control" id="Profile"  name="profile" required>
+                 <input type="file" class="form-control" id="Profile"  name="profile" >
                 </div>
              </div>  
 </div>

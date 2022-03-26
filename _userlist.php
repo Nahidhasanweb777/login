@@ -61,7 +61,7 @@ while ($row = mysqli_fetch_assoc($userlist)){
  
 
    $db_id = $row['ID'];
-   $Profile = $row['profile'] ;
+   $db_profile = $row['profile'] ;
    $db_FirstName = $row['FIRST_NAME'];
    $db_LastName = $row['LAST_NAME'];
    $db_Birth_of_date = $row['BIRTH_OF_DATE'];
@@ -72,7 +72,7 @@ while ($row = mysqli_fetch_assoc($userlist)){
      <tr>
         <td><?php  echo $db_id ?> </td>
         <td>
-        <img width="40px" src= "uploads/<?php echo $Profile ?>" class="rounded-circle">
+        <img width="40px" src= "uploads/<?php echo $db_profile; ?>" class="rounded-circle">
       </td>
         <td><?php  echo $db_FirstName ?></td>
         <td><?php  echo $db_LastName ?></td>

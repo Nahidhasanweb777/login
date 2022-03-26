@@ -9,11 +9,11 @@
  $Password = $_REQUEST['Password'];
  $Cpassword = $_REQUEST['Cpassword'];
 
-$pro = $_FILES['profile'];
-$pname = $pro['name'];
-$ptmp_name = $pro['tmp_name'];
-$psize = $pro['size'];
-$psize1 =floor($psize/1000);
+$pname = $_FILES['profile']['name'];
+//$pname = $pro['name'];
+$ptmp_name = $_FILES['profile']['tmp_name'];
+//$psize = $pro['size'];
+//$psize1 =floor($psize/1000);
 
 // echo $psize1."kb";
 // echo $pname;
@@ -22,10 +22,13 @@ $psize1 =floor($psize/1000);
 //  var_dump($pro);
  //$conPassword = $_REQUEST['conPassword'];
 
+//$pname_change = uniqid().".png";
 if(!empty($pname)){
-   $loc = "uploads/";
+  // $loc = "uploads/";
    //move_uploaded_file($ptmp_name,$loc."profile.jpg");
-   move_uploaded_file($ptmp_name,$loc.$pname);
+  if( move_uploaded_file($ptmp_name,"uploads/".$pname)){
+    // header("location:_userlist.php");
+  }
    //echo"file ok";
 }
 else{
@@ -56,7 +59,7 @@ else{
  {
     include_once'db_connection.php';
 
-    $query = " INSERT INTO  user ( FIRST_NAME, LAST_NAME, BIRTH_OF_DATE, GENDER, EMAIL, PASSWORD, Profile) ";
+    $query = " INSERT INTO  user ( FIRST_NAME, LAST_NAME, BIRTH_OF_DATE, GENDER, EMAIL, PASSWORD, profile) ";
     $query .= "values('$fName','$lname','$bdate','$gender','$email','$Password','$pname' )";
 
     $result = mysqli_query($conn,$query);
