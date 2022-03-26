@@ -72,7 +72,7 @@ while ($row = mysqli_fetch_assoc($userlist)){
      <tr>
         <td><?php  echo $db_id ?> </td>
         <td>
-        <img width="40px" src= "uploads/<?php echo $db_profile; ?>" class="rounded-circle">
+        <img width="50px" height="50px" src= "uploads/<?php echo $db_profile; ?>" class="rounded-circle">
       </td>
         <td><?php  echo $db_FirstName ?></td>
         <td><?php  echo $db_LastName ?></td>

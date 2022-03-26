@@ -34,7 +34,7 @@ $db_pro = $row['profile'];
 
 <div class="row">
 <div class="col">
-<?php var_dump ($db_pro); ?>
+
         <label class="form-label">Profile </label>
         <input type="file" class="form-control" id="Profile"  name="profile" value ="" >
         <!-- <input type="file" class="form-control"  name ="profile" value="<?php //echo $db_pro ?>"> -->

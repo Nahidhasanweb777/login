@@ -32,7 +32,7 @@ if(!empty($pname)){
    //echo"file ok";
 }
 else{
-   echo"image uploade faild";
+   $pname = "p_demo.png";
 }
  $passCound = strlen($Password);
 
