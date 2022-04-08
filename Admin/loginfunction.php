@@ -49,6 +49,7 @@ else{
  }
  else{
     // echo " ok";
+
  $hash_format = "$2y$07$"; //code 07 is how much time need to genarate 
  $salt = "vbnhjkloyesadfyhju22$"; // salt is mix with hash_farmate then genarat
  $conC = $hash_format . $salt;

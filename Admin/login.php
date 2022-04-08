@@ -34,28 +34,38 @@
 <?php
 
 if(isset($_REQUEST['login'])){
-// $servername = "localhost";
-// $username = "nahid";
-// $password = "1234";
-// $db = "nahid";
+
 include_once'db_connection.php';
-// mysql_connect($servername,$username,$password);
-// mysql_select_db($db);
+
   $log_email=$_REQUEST['log_email'];
+
   $log_pass=$_REQUEST['log_pass'];
-  
-  $sql="select * from user where EMAIL='".$log_email."'AND PASSWORD='".$log_pass."' ";
+
+  $hash_format = "$2y$07$"; //code 07 is how much time need to genarate 
+  $salt = "vbnhjkloyesadfyhju22$"; // salt is mix with hash_farmate then genarat
+  $conC = $hash_format . $salt;
+  $log_pass = crypt($log_pass,$conC);
+ 
+
+
+  $sql="select * from user where EMAIL='$log_email' AND PASSWORD='$log_pass'";
   
  // $result1=mysql_query($sql);
 
   $result1 = mysqli_query($conn, $sql);
 //   $fetchdatas = mysqli_fetch_assoc($result1);
   
-while($row = mysqi_fetch_row($result1)){
-
+$row_count = mysqli_num_rows($result1);
    
+if ($row_count){
+  echo "login successfull";
+  
+}
+else{
+  echo "login faild";
+}
 
-  }
+  
 
   
       
